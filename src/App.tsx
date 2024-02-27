@@ -12,7 +12,6 @@ function App() {
 
 	return (
 		<>
-			<Button onClick={addCounter}>Кнопка</Button>
 			<Button appearence='big'>Кнопка</Button>
 			<Input placeholder='Email'/>
 		</>

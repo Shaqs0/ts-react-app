@@ -1,4 +1,4 @@
-import { InputHTMLAttributes, ReactNode } from 'react';
+import { InputHTMLAttributes} from 'react';
 
 export interface HeadlingProps extends InputHTMLAttributes<HTMLHeadingElement> {
     
