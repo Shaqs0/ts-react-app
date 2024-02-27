@@ -1,6 +1,6 @@
 import { MouseEvent, useState } from 'react';
-import Button from './components/Button/Button/Button';
-import Input from './components/Button/Input/Input';
+import Button from './components/Button/Button';
+import Input from './components/Input/Input';
 import { Link, RouterProvider} from 'react-router-dom';
 
 function App() {

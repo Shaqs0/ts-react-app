@@ -57,3 +57,12 @@
     line-height: normal;
     color: var(--text-color);
  }
+
+ .active {
+   color: var(--primary-color);
+ }
+
+ .content {
+   padding: 40px 60px;
+   width: 100%;
+ }
