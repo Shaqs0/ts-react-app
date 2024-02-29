@@ -8,6 +8,9 @@ import { Layout } from './layout/Menu/Layout';
 import { Product } from './pages/Product/Product';
 import axios from 'axios';
 import { PREFIX } from './helpers/API';
+import { AuthLayout } from './layout/Auth/AuthLayout';
+import { Login } from './pages/Login/Login';
+import { Register } from './pages/Register/Register';
 
 const Menu = lazy(() => import('./pages/Menu/Menu'));
 
@@ -24,10 +27,6 @@ const router = createBrowserRouter([
 			{
 				path: '/cart',
 				element: <Cart />
-			},
-			{
-				path: '/cart',
-				element: <Cart/>
 			},
 			{
 				path: '/product/:id',
@@ -47,8 +46,18 @@ const router = createBrowserRouter([
 		]
 	},
 	{
-		path: '/cart',
-		element: <Cart />
+		path: '/auth',
+		element: <AuthLayout/>,
+		children: [
+			{
+				path: 'login',
+				element: <Login/>
+			}, 
+			{
+				path: 'register',
+				element: <Register/>
+			}
+		]
 	},
 	{
 		path: '*',
