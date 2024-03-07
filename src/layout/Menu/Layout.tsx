@@ -3,12 +3,18 @@ import styles from './Layout.module.css';
 import Button from '../../components/Button/Button';
 import cn from 'classnames';
 import { useDispatch, useSelector } from 'react-redux';
-import { AppDispath } from '../../store/store';
-import { userActions } from '../../store/user.slice';
+import { AppDispath, RootState } from '../../store/store';
+import { profile, userActions } from '../../store/user.slice';
+import { useEffect } from 'react';
 
 export function Layout() {
 	const navigate = useNavigate();
 	const dispatch = useDispatch<AppDispath>();
+	const getProfile = useSelector((s: RootState) => s.user.profile);
+
+	useEffect(() => {
+		dispatch(profile());
+	}, [dispatch]);
 
 	const logout = () => {
 		dispatch(userActions.logout());
@@ -19,8 +25,8 @@ export function Layout() {
 		<div className={styles['sidebar']}>
 			<div className={styles['user']}>
 				<img className={styles['avatar']} src='/avatar.svg' alt="Аватар пользователя"/>
-				<div className={styles['name']}>Матвей Гончаров</div>
-				<div className={styles['email']}>goncharov@gmail.com</div>
+				<div className={styles['name']}>{getProfile?.name}</div>
+				<div className={styles['email']}>{getProfile?.email}</div>
 			</div>
 			<div className={styles['menu']}>
 				<NavLink to='/' className={({ isActive }) => cn(styles['link'], {
