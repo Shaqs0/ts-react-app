@@ -8,6 +8,7 @@
     border-right: 1px solid var(--separator-color);
     display: flex;
     flex-direction: column;
+    height: 95vh;
 }
 
 .exit {
