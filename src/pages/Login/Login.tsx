@@ -5,9 +5,8 @@ import Input from '../../components/Input/Input';
 import styles from './Login.module.css';
 import { FormEvent, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { AppDispath } from '../../store/store';
+import { AppDispath, RootState } from '../../store/store';
 import { login, userActions } from '../../store/user.slice';
-import { RootState } from '@reduxjs/toolkit/query';
 
 
 export type LoginForm = {
