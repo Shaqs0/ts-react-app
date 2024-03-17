@@ -2,17 +2,21 @@ import styles from './ProductItems.module.css';
 import { productActions } from '../../store/product.slice.ts';
 import { useDispatch } from 'react-redux';
 import { AppDispath } from '../../store/store';
-import { ProductItemProps } from './ProductItems.props.ts';
+import { ProductItemsProps } from './ProductItems.props.ts';
+import Button from '../Button/Button.tsx';
+import Headling from '../Headling/Headling.tsx';
 
-function ProductItems(props: ProductItemProps ) {
+function ProductItems(props: ProductItemsProps ) {
 	const dispatch = useDispatch<AppDispath>();
 	
 	const add = () => {
 		dispatch(productActions.addToCart(props.id));
+		console.log('a');
 	};
 
 	return (
 		<div className={styles['item']}>
+			<Headling>{props.name}</Headling>
 			<div className={styles['image']} style={{backgroundImage: `url('${props.image}')`}}></div>
 			<div className={styles['description']}>
 				<div className={styles['name']}>{props.name}</div>
@@ -20,9 +24,9 @@ function ProductItems(props: ProductItemProps ) {
 			</div>
 			<div className={styles['actions']}>
 				<div className={styles['number']}></div>
-				<button className={styles['plus']} onClick={add}>
-					<img src='/plus-icon.svg' alt='Добавить в корзину'></img>
-				</button>
+			</div>
+			<div className={styles['checkout']}>
+				<Button appearence='big' onClick={add}>Добавить в корзину</Button>
 			</div>
 		</div>
 	);
