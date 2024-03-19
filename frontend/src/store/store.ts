@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
 import userSlice, { JWT_PERSISTENT_STATE } from './user.slice';
 import { saveState } from './storage';
-import cartSlice, { CART_PERSISTENT_STATE } from '/home/shaqs/ts-react-app/src/store/сart.slice.ts';
-import productSlice, { PRODUCT_PERSISTENT_STATE } from '/home/shaqs/ts-react-app/src/store/product.slice.ts';
+import cartSlice, { CART_PERSISTENT_STATE } from './сart.slice';
+import productSlice, { PRODUCT_PERSISTENT_STATE } from './product.slice';
 
 
 export const store = configureStore({
@@ -20,4 +20,4 @@ store.subscribe(() => {
 });
 
 export type RootState = ReturnType<typeof store.getState>;
-export type AppDispath = typeof store.dispatch;
+export type AppDispath = typeof store.dispatch
